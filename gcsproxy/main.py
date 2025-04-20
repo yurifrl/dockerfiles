@@ -3,7 +3,7 @@ from flask import Flask, send_file, abort
 from google.cloud import storage
 
 app = Flask(__name__)
-bucket_name = os.environ.get("GCS_BUCKET", "your-bucket")
+bucket_name = os.environ["GCS_BUCKET"]
 client = storage.Client.from_service_account_json("/key.json")
 bucket = client.bucket(bucket_name)
 
